@@ -1,5 +1,13 @@
 #!/usr/bin/python3
 
+
+""" Creating a function called def island_perimeter(grid):
+    to return the perimeter of the island described in grid
+    grid is a list of list of integers: 
+    0 represents water, 1 represents land
+"""
+
+
 def island_perimeter(grid):
     if not grid:
         return 0
