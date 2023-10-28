@@ -1,13 +1,10 @@
 #!/usr/bin/python3
 
-
-""" The N queens puzzle is the challenge of placing
-    N non-attacking queens on an NxN
+""" The N queens puzzle is the challenge of placing N non-attacking queens on an NxN
     chessboard. Write a program that solves the N queens problem.
 """
 
 import sys
-
 
 def is_safe(board, row, col):
     """
@@ -38,28 +35,28 @@ def is_safe(board, row, col):
 
 
 def solve_nqueens(board, n):
-    """
-    Solves the N queens problem for a board of size n.
+  """
+  Solves the N queens problem for a board of size n.
 
-    Args:
-        board: The board.
-        n: The size of the board.
+  Args:
+    board: The board.
+    n: The size of the board.
 
-    Returns:
-        True if the problem was solved, False otherwise.
-    """
+  Returns:
+    True if the problem was solved, False otherwise.
+  """
 
-    if n == 0:
+  if n == 0:
+    return True
+
+  for col in range(n):
+    if is_safe(board, n - 1, col):
+      board[n - 1][col] = 1
+      if solve_nqueens(board, n - 1):
         return True
+      board[n - 1][col] = 0
 
-    for col in range(n):
-        if is_safe(board, n - 1, col):
-            board[n - 1][col] = 1
-        if solve_nqueens(board, n - 1):
-            return True
-        board[n - 1][col] = 0
-
-    return False
+  return False
 
 
 def main():
@@ -88,8 +85,7 @@ def main():
         for i in range(n):
             print(*board[i])
     else:
-        print("No solution")
-
+        print("No solution")    
 
 if __name__ == "__main__":
     main()
