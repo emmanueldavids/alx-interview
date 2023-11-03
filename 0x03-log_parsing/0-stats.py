@@ -27,8 +27,8 @@ try:
 
             if status_code.isdigit():
                 status_code = int(status_code)
-                status_counts[status_code] = status_counts.get(status_code, 0)
-                + 1
+                status_counts[status_code] = status_counts.get(
+                    status_code, 0) + 1
 
             if line_number % 10 == 0:
                 print_stats(total_size, status_counts)
